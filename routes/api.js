@@ -6,11 +6,11 @@ const routeBind = require("../helpers/RouteBind");
 const express = require("express");
 const router = express.Router();
 
-const BaseRequest = require("../app/requests/BaseRequest");
+const FetchFeedRequest = require("../app/requests/FetchFeedRequest");
 
 router.get("/feed",
     AuthMiddleware,
-    routeBind(RssController, "fetchFeed", BaseRequest)
+    routeBind(RssController, "fetchFeed", FetchFeedRequest)
 );
 
 module.exports = router;

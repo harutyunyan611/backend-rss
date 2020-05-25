@@ -9,4 +9,4 @@ module.exports = class Exception {
     getMessage() {
         return this.message;
     }
-}
+};

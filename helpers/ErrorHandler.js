@@ -1,6 +1,7 @@
 const HttpResponse = require("./HttpResponseHandler");
-const {NotFoundException} = require("../app/exceptions/NotFoundException");
-const {BadRequestException} = require("../app/exceptions/BadRequestException");
+const NotFoundException = require("../app/exceptions/NotFoundException");
+const BadRequestException = require("../app/exceptions/BadRequestException");
+const ValidationException = require("../app/exceptions/ValidationException");
 const Exception = require("../app/exceptions/Exception");
 
 module.exports = (res, err) => {
@@ -15,6 +16,8 @@ module.exports = (res, err) => {
         if (err instanceof NotFoundException) {
             httpCode = HttpResponse.NOT_FOUND.code;
         } else if (err instanceof BadRequestException) {
+            httpCode = HttpResponse.BAD_REQUEST.code;
+        } else if (err instanceof ValidationException) {
             httpCode = HttpResponse.BAD_REQUEST.code;
         }
 
