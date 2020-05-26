@@ -7,15 +7,17 @@ module.exports = class Post extends Transformer {
     }
 
     toSingle() {
+        const description = this.data.content || (this.data.mediaData && this.data.mediaData["media:description"] && this.data.mediaData["media:description"][0]);
         return {
             id: this.data.id,
             title: this.data.title,
             link: this.data.link,
-            description: this.data.content,
-            plainDescription: this.contentSnippet,
+            description,
+            plainDescription: this.contentSnippet || description,
             author: this.data.author,
             category: this.data.categories || [],
-            pubDate: this.data.date
+            pubDate: this.data.date,
+            thumbnail: this.data.thumbnail
         };
     }
 };
