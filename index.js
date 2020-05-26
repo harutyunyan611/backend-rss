@@ -29,5 +29,5 @@ const server = http.createServer(app);
 
 const port = (process.env.PORT || 3009);
 
-server.listen(port); // WARNING PUT IT IN ENV
+server.listen(port);
 
