@@ -15,7 +15,7 @@ module.exports = class RssController extends BaseController {
     async fetchFeed(req, res) {
         try {
             req.validate();
-            const data = await this.rssService.fetchFeed();
+            const data = await this.rssService.fetchFeed(req.getUrl());
             this.response(res, HttpResponse.OK, new Rss(data).toSingle());
         } catch (e) {
             console.log(e);

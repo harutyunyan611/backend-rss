@@ -14,7 +14,7 @@ module.exports = class Post extends Transformer {
             description: this.data.content,
             plainDescription: this.contentSnippet,
             author: this.data.author,
-            category: this.data.categories,
+            category: this.data.categories || [],
             pubDate: this.data.date
         };
     }

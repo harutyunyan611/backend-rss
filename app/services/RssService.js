@@ -5,7 +5,7 @@ module.exports = class RssServie {
     this.parser = new Parser();
   }
 
-  fetchFeed() {
-    return this.parser.parseURL('https://techcrunch.com/feed/');
+  fetchFeed(url) {
+    return this.parser.parseURL(url);
   }
 };

@@ -8,21 +8,11 @@ module.exports = class Rss extends Transformer {
     }
 
     toSingle() {
-        console.log(Object.keys(this.data));
-        // 'items',
-        //     'feedUrl',
-        //     'image',
-        //     'title',
-        //     'description',
-        //     'generator',
-        //     'link',
-        //     'language',
-        //     'lastBuildDate'
         return {
             title: this.data.title,
             description: this.data.description,
             xmlUrl: this.data.feedurl,
-            siteIcon: this.data.image.url,
+            siteIcon: this.data.image && this.data.image.url,
             posts: new Post(this.data.items).toCollection()
         };
     }

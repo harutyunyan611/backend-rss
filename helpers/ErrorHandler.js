@@ -9,7 +9,6 @@ module.exports = (res, err) => {
     let errorMessage = HttpResponse.INTERNAL_SERVER_ERROR.message;
     let errorCode = httpCode;
     if (err instanceof Exception) {
-
         errorMessage = err.getMessage();
         errorCode = err.getCode();
 
@@ -32,6 +31,5 @@ module.exports = (res, err) => {
             message: errorMessage
         }
     };
-
     res.status(httpCode).send(result);
 };
